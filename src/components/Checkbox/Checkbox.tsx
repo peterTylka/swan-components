@@ -54,7 +54,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
       <span
         aria-hidden="true"
         className="
-          flex h-5 w-5 shrink-0 items-center justify-center rounded-[3px]
+          flex h-5 w-5 shrink-0 items-center justify-center rounded-xs
           border border-line bg-white text-white transition-colors
           peer-hover:border-primary
           peer-checked:bg-primary

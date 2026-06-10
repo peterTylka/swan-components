@@ -2,6 +2,15 @@
 
 Reusable, accessible `Checkbox` and generic `FormField` React components, built to match the provided Figma design.
 
+## Notes and Questions
+- I don't have figma dev access so cannot see exact CSS props of elements
+  - some CSS props I found out via other tools, but I didn't find e.g. font props
+- Are UI inconsistencies intentional ?
+  - checked vs unchecked checkbox
+    - different border radius - 3px(checked) vs 2px(unchecked)
+    - different border colors - #E9E9E9(checked) vs #B2B2B2(unchecked)
+
+
 ## Stack
 
 Vite • React • TypeScript • Tailwind CSS v4 • Vitest + React Testing Library
