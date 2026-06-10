@@ -13,7 +13,7 @@ export interface CheckboxProps
 
 function CheckIcon() {
   return (
-    <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden="true">
+    <svg viewBox="0 0 16 16" fill="none" className="h-5.5 w-5.5" aria-hidden="true">
       <path
         d="M3.5 8.5l3 3 6-6"
         stroke="currentColor"
@@ -54,13 +54,13 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
       <span
         aria-hidden="true"
         className="
-          flex h-5 w-5 shrink-0 items-center justify-center rounded-xs
-          border border-line bg-white text-white transition-colors
+          flex h-6 w-6 shrink-0 items-center justify-center rounded-xs
+          border border-muted bg-white text-white transition-colors
           peer-hover:border-primary
           peer-checked:bg-primary
           peer-focus-visible:outline peer-focus-visible:outline-2
           peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary
-          peer-disabled:border-line peer-disabled:bg-disabled
+          peer-disabled:border-muted peer-disabled:bg-disabled
         "
       >
         {checked && <CheckIcon />}
