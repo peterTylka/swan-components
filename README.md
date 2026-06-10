@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# Checkbox Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Reusable, accessible `Checkbox` and generic `FormField` React components, built to match the provided Figma design.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Vite • React • TypeScript • Tailwind CSS v4 • Vitest + React Testing Library
 
-## React Compiler
+## Run
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev      # demo page
+npm test         # unit tests
+npm run build    # production build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Components
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Checkbox
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Controlled checkbox wrapping a visually-hidden native `<input type="checkbox">`
+(full keyboard, screen-reader, and `<form>` support). Extra props are forwarded
+to the input.
+
+| Prop | Type | Notes |
+|------|------|-------|
+| `checked` | `boolean` | required (controlled) |
+| `onChange` | `(checked, event) => void` | required |
+| `disabled` | `boolean` | optional |
+| `label` | `ReactNode` | optional inline label |
+
+### FormField
+
+Generic field wrapper — works around any control, not just `Checkbox`.
+
+| Prop | Type | Notes |
+|------|------|-------|
+| `label` | `ReactNode` | field label; if omitted and `required`, defaults to "Required field" |
+| `required` | `boolean` | shows teal required dot |
+| `helpText` | `ReactNode` | muted help text, wired to the child via `aria-describedby` |
+| `htmlFor` | `string` | id of the control it labels |
+
+### Example
+
+```tsx
+const [accepted, setAccepted] = useState(false);
+
+<FormField label="Required field" required helpText="Example help text." htmlFor="terms">
+  <Checkbox id="terms" label="Checkbox text" checked={accepted} onChange={setAccepted} />
+</FormField>
 ```
+
+## Design tokens
+
+Figma colors live as Tailwind v4 `@theme` tokens in `src/index.css`
+(`primary #07C4C1`, `ink`, `label`, `muted`, `line`, `disabled`).
