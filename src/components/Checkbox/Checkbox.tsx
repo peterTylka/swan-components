@@ -13,7 +13,7 @@ export interface CheckboxProps
 
 function CheckIcon() {
   return (
-    <svg viewBox="0 0 16 16" fill="none" className="h-3 w-3" aria-hidden="true">
+    <svg viewBox="0 0 16 16" fill="none" className="h-4 w-4" aria-hidden="true">
       <path
         d="M3.5 8.5l3 3 6-6"
         stroke="currentColor"
