@@ -1,6 +1,6 @@
 # Checkbox Assignment
 
-Reusable, accessible `Checkbox` and generic `FormField` React components, built to match the provided Figma design.
+Reusable, accessible `Checkbox` and generic `FormField` React components, built to match the provided [Figma design](https://www.figma.com/design/r36GcvKGGpd73hNGgUMTF8/Checkbox-Assignment?node-id=1-564&t=NTn88lRpqGU3WJQw-0).
 
 ## Notes and Questions
 - I don't have figma dev access so cannot see exact CSS props of elements
