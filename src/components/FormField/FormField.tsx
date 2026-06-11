@@ -31,7 +31,7 @@ export function FormField({ label, required = false, helpText, htmlFor, children
         <label htmlFor={htmlFor} className="text-sm font-semibold text-foreground">
           {resolvedLabel}
           {required && (
-            <span data-testid="required-marker" aria-hidden="true" className="ml-1 text-primary">
+            <span data-testid="required-marker" aria-hidden="true" className="relative -top-0.25 ml-1 text-primary">
               •
             </span>
           )}
