@@ -1,4 +1,5 @@
 import { useId } from 'react'
+import clsx from 'clsx'
 
 export interface CheckboxProps extends Omit<
   React.ComponentPropsWithoutRef<'input'>,
@@ -46,7 +47,7 @@ export function Checkbox({
   return (
     <label
       htmlFor={inputId}
-      className={['inline-flex items-center gap-3 select-none', className ?? ''].join(' ')}
+      className={clsx('inline-flex items-center gap-3 select-none', className)}
     >
       <input
         ref={ref}
@@ -55,30 +56,28 @@ export function Checkbox({
         checked={checked}
         disabled={disabled}
         onChange={(e) => onChange(e.target.checked, e)}
-        className={['peer sr-only', cursorClass].join(' ')}
+        className={clsx('peer sr-only', cursorClass)}
         {...rest}
       />
       <span
         aria-hidden="true"
-        className={[
-          'flex h-6 w-6 shrink-0 items-center justify-center rounded-xs \
-          border border-border bg-white text-white transition-colors \
-          peer-hover:border-primary peer-checked:bg-primary \
-          peer-focus-visible:outline-2 \
-          peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary \
-          peer-disabled:border-border peer-disabled:bg-muted \
-        ',
+        className={clsx(
+          'flex h-6 w-6 shrink-0 items-center justify-center rounded-xs',
+          'border border-border bg-white text-white transition-colors',
+          'peer-hover:border-primary peer-checked:bg-primary',
+          'peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary',
+          'peer-disabled:border-border peer-disabled:bg-muted',
           cursorClass,
-        ].join(' ')}
+        )}
       >
         {checked && <CheckIcon />}
       </span>
       {label != null && (
         <span
-          className={[
+          className={clsx(
             'text-[15px] leading-none text-foreground peer-disabled:text-muted-foreground',
             cursorClass,
-          ].join(' ')}
+          )}
         >
           {label}
         </span>
