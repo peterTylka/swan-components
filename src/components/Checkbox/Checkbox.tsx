@@ -41,6 +41,7 @@ export function Checkbox({
 }: CheckboxProps) {
   const generatedId = useId()
   const inputId = id ?? generatedId
+  const cursorClass = disabled ? 'cursor-not-allowed' : 'cursor-pointer'
 
   return (
     <label
@@ -54,7 +55,7 @@ export function Checkbox({
         checked={checked}
         disabled={disabled}
         onChange={(e) => onChange(e.target.checked, e)}
-        className={['peer sr-only', disabled ? 'cursor-not-allowed' : 'cursor-pointer'].join(' ')}
+        className={['peer sr-only', cursorClass].join(' ')}
         {...rest}
       />
       <span
@@ -67,7 +68,7 @@ export function Checkbox({
           peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary \
           peer-disabled:border-border peer-disabled:bg-muted \
         ',
-          disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+          cursorClass,
         ].join(' ')}
       >
         {checked && <CheckIcon />}
@@ -76,7 +77,7 @@ export function Checkbox({
         <span
           className={[
             'text-[15px] leading-none text-foreground peer-disabled:text-muted-foreground',
-            disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+            cursorClass,
           ].join(' ')}
         >
           {label}
