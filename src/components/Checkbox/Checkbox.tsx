@@ -1,14 +1,16 @@
-import { forwardRef, useId } from 'react';
+import { forwardRef, useId } from 'react'
 
-export interface CheckboxProps
-  extends Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'checked' | 'onChange'> {
+export interface CheckboxProps extends Omit<
+  React.ComponentPropsWithoutRef<'input'>,
+  'type' | 'checked' | 'onChange'
+> {
   /** Controlled checked state. */
-  checked: boolean;
+  checked: boolean
   /** Called with the next checked value and the raw change event. */
-  onChange: (checked: boolean, event: React.ChangeEvent<HTMLInputElement>) => void;
-  disabled?: boolean;
+  onChange: (checked: boolean, event: React.ChangeEvent<HTMLInputElement>) => void
+  disabled?: boolean
   /** Optional inline label rendered beside the box. */
-  label?: React.ReactNode;
+  label?: React.ReactNode
 }
 
 function CheckIcon() {
@@ -22,15 +24,15 @@ function CheckIcon() {
         strokeLinejoin="round"
       />
     </svg>
-  );
+  )
 }
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
   { checked, onChange, disabled = false, label, id, className, ...rest },
   ref,
 ) {
-  const generatedId = useId();
-  const inputId = id ?? generatedId;
+  const generatedId = useId()
+  const inputId = id ?? generatedId
 
   return (
     <label
@@ -71,5 +73,5 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
         </span>
       )}
     </label>
-  );
-});
+  )
+})
