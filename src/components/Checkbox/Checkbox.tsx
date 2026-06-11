@@ -1,4 +1,4 @@
-import { forwardRef, useId } from 'react'
+import { useId } from 'react'
 
 export interface CheckboxProps extends Omit<
   React.ComponentPropsWithoutRef<'input'>,
@@ -11,6 +11,8 @@ export interface CheckboxProps extends Omit<
   disabled?: boolean
   /** Optional inline label rendered beside the box. */
   label?: React.ReactNode
+  /** Ref forwarded to the underlying input element. */
+  ref?: React.Ref<HTMLInputElement>
 }
 
 function CheckIcon() {
@@ -27,10 +29,16 @@ function CheckIcon() {
   )
 }
 
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
-  { checked, onChange, disabled = false, label, id, className, ...rest },
+export function Checkbox({
+  checked,
+  onChange,
+  disabled = false,
+  label,
+  id,
+  className,
   ref,
-) {
+  ...rest
+}: CheckboxProps) {
   const generatedId = useId()
   const inputId = id ?? generatedId
 
@@ -58,8 +66,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
         className="
           flex h-6 w-6 shrink-0 items-center justify-center rounded-xs
           border border-border bg-white text-white transition-colors
-          peer-hover:border-primary
-          peer-checked:bg-primary
+          peer-hover:border-primary peer-checked:bg-primary
           peer-focus-visible:outline-2
           peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary
           peer-disabled:border-border peer-disabled:bg-muted
@@ -74,4 +81,4 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
       )}
     </label>
   )
-})
+}

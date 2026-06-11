@@ -9,12 +9,7 @@ export interface FormFieldProps {
   children: React.ReactNode
 }
 
-export function FormField({
-  title,
-  required = false,
-  helpText,
-  children,
-}: FormFieldProps) {
+export function FormField({ title, required = false, helpText, children }: FormFieldProps) {
   const baseId = useId()
   const helpId = `${baseId}-help`
 
