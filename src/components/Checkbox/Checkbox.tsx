@@ -45,10 +45,7 @@ export function Checkbox({
   return (
     <label
       htmlFor={inputId}
-      className={[
-        'inline-flex items-center gap-3 select-none',
-        className ?? '',
-      ].join(' ')}
+      className={['inline-flex items-center gap-3 select-none', className ?? ''].join(' ')}
     >
       <input
         ref={ref}
