@@ -47,7 +47,6 @@ export function Checkbox({
       htmlFor={inputId}
       className={[
         'inline-flex items-center gap-3 select-none',
-        disabled ? 'cursor-not-allowed' : 'cursor-pointer',
         className ?? '',
       ].join(' ')}
     >
@@ -58,24 +57,31 @@ export function Checkbox({
         checked={checked}
         disabled={disabled}
         onChange={(e) => onChange(e.target.checked, e)}
-        className="peer sr-only"
+        className={['peer sr-only', disabled ? 'cursor-not-allowed' : 'cursor-pointer'].join(' ')}
         {...rest}
       />
       <span
         aria-hidden="true"
-        className="
-          flex h-6 w-6 shrink-0 items-center justify-center rounded-xs
-          border border-border bg-white text-white transition-colors
-          peer-hover:border-primary peer-checked:bg-primary
-          peer-focus-visible:outline-2
-          peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary
-          peer-disabled:border-border peer-disabled:bg-muted
-        "
+        className={[
+          'flex h-6 w-6 shrink-0 items-center justify-center rounded-xs \
+          border border-border bg-white text-white transition-colors \
+          peer-hover:border-primary peer-checked:bg-primary \
+          peer-focus-visible:outline-2 \
+          peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary \
+          peer-disabled:border-border peer-disabled:bg-muted \
+        ',
+          disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+        ].join(' ')}
       >
         {checked && <CheckIcon />}
       </span>
       {label != null && (
-        <span className="text-[15px] leading-none text-foreground peer-disabled:text-muted-foreground">
+        <span
+          className={[
+            'text-[15px] leading-none text-foreground peer-disabled:text-muted-foreground',
+            disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+          ].join(' ')}
+        >
           {label}
         </span>
       )}
