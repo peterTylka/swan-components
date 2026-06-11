@@ -28,7 +28,7 @@ export function FormField({ label, required = false, helpText, htmlFor, children
   return (
     <div className="flex flex-col gap-2">
       {resolvedLabel != null && (
-        <label htmlFor={htmlFor} className="text-sm font-semibold text-ink">
+        <label htmlFor={htmlFor} className="text-sm font-semibold text-foreground">
           {resolvedLabel}
           {required && (
             <span data-testid="required-marker" aria-hidden="true" className="ml-1 text-primary">
@@ -39,7 +39,7 @@ export function FormField({ label, required = false, helpText, htmlFor, children
       )}
       {content}
       {helpText != null && (
-        <p id={helpId} className="text-sm text-muted">
+        <p id={helpId} className="text-sm text-muted-foreground">
           {helpText}
         </p>
       )}

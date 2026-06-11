@@ -1,12 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #07c4c1;   /* checked fill, checkmark, required dot, focus ring */
-  --color-ink: #474747;       /* inline label text */
-  --color-label: #5e5e5e;     /* field label / heading */
-  --color-muted: #b2b2b2;     /* help text, disabled label */
-  --color-line: #d1d1d1;      /* unchecked box border */
-  --color-disabled: #e9e9e9;  /* disabled box fill */
+  /* ── palette — swan-<hue>-<scale> (brand swatches) ── */
+  --color-swan-teal-400: #07c4c1; /* Cala Benirrás Blue */
+  --color-swan-gray-200: #e9e9e9; /* Plaster */
+  --color-swan-gray-300: #d1d1d1; /* Ancestral Water — unused */
+  --color-swan-gray-400: #b2b2b2; /* Tangled Web */
+  --color-swan-gray-600: #5e5e5e; /* Iron — unused */
+  --color-swan-gray-700: #474747; /* Wood Charcoal */
+
+  /* ── semantic — theme-able roles (shadcn-style) ────── */
+  --color-foreground:       var(--color-swan-gray-700); /* primary text */
+  --color-muted:            var(--color-swan-gray-200); /* disabled / subtle fill */
+  --color-muted-foreground: var(--color-swan-gray-400); /* help, disabled, secondary text */
+  --color-border:           var(--color-swan-gray-400); /* control borders */
+  --color-primary:          var(--color-swan-teal-400); /* accent: checked, required, focus */
 }
 
 html, body, #root { margin: 0; }

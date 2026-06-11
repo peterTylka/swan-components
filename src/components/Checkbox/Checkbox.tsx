@@ -55,18 +55,18 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
         aria-hidden="true"
         className="
           flex h-6 w-6 shrink-0 items-center justify-center rounded-xs
-          border border-muted bg-white text-white transition-colors
+          border border-border bg-white text-white transition-colors
           peer-hover:border-primary
           peer-checked:bg-primary
-          peer-focus-visible:outline peer-focus-visible:outline-2
+          peer-focus-visible:outline-2
           peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary
-          peer-disabled:border-muted peer-disabled:bg-disabled
+          peer-disabled:border-border peer-disabled:bg-muted
         "
       >
         {checked && <CheckIcon />}
       </span>
       {label != null && (
-        <span className="text-[15px] leading-none text-ink peer-disabled:text-muted">
+        <span className="text-[15px] leading-none text-foreground peer-disabled:text-muted-foreground">
           {label}
         </span>
       )}
