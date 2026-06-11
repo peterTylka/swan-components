@@ -3,16 +3,16 @@ import { describe, it, expect } from 'vitest'
 import { FormField } from './FormField'
 
 describe('FormField', () => {
-  it('renders the provided label', () => {
+  it('renders the provided title', () => {
     render(
-      <FormField label="Email">
+      <FormField title="Email">
         <input aria-label="control" />
       </FormField>,
     )
     expect(screen.getByText('Email')).toBeInTheDocument()
   })
 
-  it('defaults label to "Required field" when no label and required', () => {
+  it('defaults title to "Required field" when no title and required', () => {
     render(
       <FormField required>
         <input aria-label="control" />
@@ -21,7 +21,7 @@ describe('FormField', () => {
     expect(screen.getByText('Required field')).toBeInTheDocument()
   })
 
-  it('renders no label when no label and not required', () => {
+  it('renders no title when no title and not required', () => {
     render(
       <FormField>
         <input aria-label="control" />
@@ -32,7 +32,7 @@ describe('FormField', () => {
 
   it('shows a required marker when required', () => {
     render(
-      <FormField label="Name" required>
+      <FormField title="Name" required>
         <input aria-label="control" />
       </FormField>,
     )
@@ -41,7 +41,7 @@ describe('FormField', () => {
 
   it('renders help text and wires it to the child via aria-describedby', () => {
     render(
-      <FormField label="Name" helpText="Some help">
+      <FormField title="Name" helpText="Some help">
         <input aria-label="control" />
       </FormField>,
     )

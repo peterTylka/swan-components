@@ -9,12 +9,7 @@ export default function App() {
 
   return (
     <main className="mx-auto flex max-w-md flex-col gap-8 p-10">
-      <FormField
-        label="Required field"
-        required
-        htmlFor="cb-required"
-        helpText="Example help text."
-      >
+      <FormField title="Required field" required helpText="Example help text.">
         <Checkbox
           id="cb-required"
           label="Checkbox text"
@@ -23,7 +18,7 @@ export default function App() {
         />
       </FormField>
 
-      <FormField label="Optional field" htmlFor="cb-optional">
+      <FormField title="Optional field">
         <Checkbox id="cb-optional" checked={optional} onChange={setOptional} />
       </FormField>
 

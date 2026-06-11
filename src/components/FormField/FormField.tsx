@@ -1,27 +1,24 @@
 import { cloneElement, isValidElement, useId } from 'react'
 
 export interface FormFieldProps {
-  /** Field label above the control. */
-  label?: React.ReactNode
-  /** Shows a teal required marker; supplies a default label when none given. */
+  /** Caption text above the control. Not a clickable label. */
+  title?: React.ReactNode
+  /** Shows a teal required marker; supplies a default title when none given. */
   required?: boolean
   helpText?: React.ReactNode
-  /** id of the control this field labels (for the label's htmlFor). */
-  htmlFor?: string
   children: React.ReactNode
 }
 
 export function FormField({
-  label,
+  title,
   required = false,
   helpText,
-  htmlFor,
   children,
 }: FormFieldProps) {
   const baseId = useId()
   const helpId = `${baseId}-help`
 
-  const resolvedLabel = label ?? (required ? 'Required field' : null)
+  const resolvedTitle = title ?? (required ? 'Required field' : null)
 
   // Wire help text to the child control for screen readers.
   const content =
@@ -33,9 +30,9 @@ export function FormField({
 
   return (
     <div className="flex flex-col gap-2">
-      {resolvedLabel != null && (
-        <label htmlFor={htmlFor} className="text-sm font-semibold text-foreground">
-          {resolvedLabel}
+      {resolvedTitle != null && (
+        <div className="text-sm font-semibold text-foreground">
+          {resolvedTitle}
           {required && (
             <span
               data-testid="required-marker"
@@ -45,7 +42,7 @@ export function FormField({
               •
             </span>
           )}
-        </label>
+        </div>
       )}
       {content}
       {helpText != null && (
