@@ -18,10 +18,10 @@ Vite • React • TypeScript • Tailwind CSS v4 • Vitest + React Testing Lib
 ## Run
 
 ```bash
-npm install
-npm run dev      # demo page
-npm test         # unit tests
-npm run build    # production build
+pnpm install
+pnpm dev         # demo page
+pnpm test        # unit tests
+pnpm build       # production build
 ```
 
 ## Components
@@ -43,24 +43,24 @@ to the input.
 
 Generic field wrapper — works around any control, not just `Checkbox`.
 
-| Prop       | Type        | Notes                                                                |
-| ---------- | ----------- | -------------------------------------------------------------------- |
-| `label`    | `ReactNode` | field label; if omitted and `required`, defaults to "Required field" |
-| `required` | `boolean`   | shows teal required dot                                              |
-| `helpText` | `ReactNode` | muted help text, wired to the child via `aria-describedby`           |
-| `htmlFor`  | `string`    | id of the control it labels                                          |
+| Prop       | Type        | Notes                                                                              |
+| ---------- | ----------- | ---------------------------------------------------------------------------------- |
+| `title`    | `ReactNode` | caption above the control; if omitted and `required`, defaults to "Required field" |
+| `required` | `boolean`   | shows teal required dot                                                            |
+| `helpText` | `ReactNode` | muted help text, wired to the child via `aria-describedby`                         |
 
 ### Example
 
 ```tsx
 const [accepted, setAccepted] = useState(false)
 
-;<FormField label="Required field" required helpText="Example help text." htmlFor="terms">
+;<FormField title="Required field" required helpText="Example help text.">
   <Checkbox id="terms" label="Checkbox text" checked={accepted} onChange={setAccepted} />
 </FormField>
 ```
 
 ## Design tokens
 
-Figma colors live as Tailwind v4 `@theme` tokens in `src/index.css`
-(`primary #07C4C1`, `ink`, `label`, `muted`, `line`, `disabled`).
+Figma colors live as Tailwind v4 `@theme` tokens in `src/index.css`:
+a two-tier setup of `swan-*` brand palette swatches mapped to semantic roles
+(`foreground`, `muted`, `muted-foreground`, `border`, `primary #07C4C1`).
