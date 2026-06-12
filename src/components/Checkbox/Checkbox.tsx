@@ -63,11 +63,12 @@ export function Checkbox({
         aria-hidden="true"
         className={clsx(
           'flex h-6 w-6 shrink-0 items-center justify-center rounded-xs',
-          'border border-border bg-white text-white transition-colors',
+          'border bg-white text-white transition-colors',
           'peer-hover:border-primary peer-checked:bg-primary',
           'peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary',
           'peer-disabled:border-border peer-disabled:bg-muted',
           cursorClass,
+          checked ? 'border-muted' : 'border-border',
         )}
       >
         {checked && <CheckIcon />}
