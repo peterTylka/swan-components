@@ -12,8 +12,6 @@ export interface CheckboxProps extends Omit<
   disabled?: boolean
   /** Optional inline label rendered beside the box. */
   label?: React.ReactNode
-  /** Ref forwarded to the underlying input element. */
-  ref?: React.Ref<HTMLInputElement>
 }
 
 function CheckIcon() {
@@ -37,7 +35,6 @@ export function Checkbox({
   label,
   id,
   className,
-  ref,
   ...rest
 }: CheckboxProps) {
   const generatedId = useId()
@@ -50,7 +47,6 @@ export function Checkbox({
       className={clsx('inline-flex items-center gap-3 select-none', className)}
     >
       <input
-        ref={ref}
         id={inputId}
         type="checkbox"
         checked={checked}
