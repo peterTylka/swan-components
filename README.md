@@ -10,6 +10,7 @@ Reusable, accessible `Checkbox` and generic `FormField` React components, built 
   - checked vs unchecked checkbox
     - different border radius - 3px(checked) vs 2px(unchecked)
     - different border colors - #E9E9E9(checked) vs #B2B2B2(unchecked)
+    - different px dimensions - 24x23(checked) vs 22x22(unchecked)
 
 ## Stack
 
