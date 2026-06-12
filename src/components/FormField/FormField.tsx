@@ -32,10 +32,8 @@ export function FormField({ title, required = false, helpText, children }: FormF
             <span
               data-testid="required-marker"
               aria-hidden="true"
-              className="relative -top-px ml-1 text-primary"
-            >
-              •
-            </span>
+              className="relative -top-0.5 ml-1 inline-block size-1 rounded-full bg-primary align-middle"
+            />
           )}
         </div>
       )}
