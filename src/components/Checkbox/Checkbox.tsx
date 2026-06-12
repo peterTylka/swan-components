@@ -76,7 +76,7 @@ export function Checkbox({
       {label != null && (
         <span
           className={clsx(
-            'text-[15px] leading-none text-foreground peer-disabled:text-muted-foreground',
+            'text-base font-normal leading-[1.3] text-foreground peer-disabled:text-muted-foreground',
             cursorClass,
           )}
         >

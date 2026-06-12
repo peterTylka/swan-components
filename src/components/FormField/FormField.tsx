@@ -26,7 +26,7 @@ export function FormField({ title, required = false, helpText, children }: FormF
   return (
     <div className="flex flex-col gap-2">
       {resolvedTitle != null && (
-        <div className="text-sm font-semibold text-foreground">
+        <div className="text-sm font-bold leading-[1.3] text-foreground">
           {resolvedTitle}
           {required && (
             <span
@@ -41,7 +41,7 @@ export function FormField({ title, required = false, helpText, children }: FormF
       )}
       {content}
       {helpText != null && (
-        <p id={helpId} className="text-sm text-muted-foreground">
+        <p id={helpId} className="text-sm font-normal leading-[1.3] text-muted-foreground">
           {helpText}
         </p>
       )}
